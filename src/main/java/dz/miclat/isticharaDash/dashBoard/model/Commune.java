@@ -10,7 +10,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "commune")
 public class Commune {
 
-	@Column 
+	
+	@Column(name = "codeW")
 	private String CodeW;
 	@Id
 	private String codec;
@@ -24,7 +25,10 @@ public class Commune {
 	@OneToMany(mappedBy = "commune")	
 	List<Aviscitoyen> aviscitoyen;
 	
-	 
+	@ManyToOne
+	Wilaya wilaya;
+	
+	
 	 
 	public String getCodeW() {
 		return CodeW;

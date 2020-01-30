@@ -12,13 +12,17 @@ public class Aviscitoyen {
 
 	@EmbeddedId
 	private AviscitoyenId aviscitoyenId;
-	
+
 	@OneToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
 	@JoinColumn(name = "CodeCR", referencedColumnName = "codec", insertable = false, updatable = false)
 	private Commune commune;
-	
-	
+
+	/*@OneToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	@JoinColumn(name = "CodeWR", referencedColumnName = "codeW", insertable = false, updatable = false)
+	private Wilaya wilaya;*/
+
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
 			@JoinColumn(name = "codeTitre", referencedColumnName = "codeTitre", insertable = false, updatable = false),
@@ -27,29 +31,22 @@ public class Aviscitoyen {
 
 	@Column
 	private String remarque;
-	
+
 	@Column
 	private String adress;
-
 
 	public Aviscitoyen() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	 
-
 	public Commune getCommune() {
 		return commune;
 	}
 
-
-
 	public void setCommune(Commune commune) {
 		this.commune = commune;
 	}
-
-
 
 	public Project getProjet() {
 		return projet;
@@ -66,8 +63,6 @@ public class Aviscitoyen {
 	public void setAviscitoyenId(AviscitoyenId aviscitoyenId) {
 		this.aviscitoyenId = aviscitoyenId;
 	}
-
-	 
 
 	public String getRemarque() {
 		return remarque;

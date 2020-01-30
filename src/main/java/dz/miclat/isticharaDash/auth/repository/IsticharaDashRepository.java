@@ -11,6 +11,4 @@ public interface IsticharaDashRepository
 extends JpaRepository<DAOUser,Long> 
 {
 	DAOUser findByUsername(String username);
-	
-	
 }
