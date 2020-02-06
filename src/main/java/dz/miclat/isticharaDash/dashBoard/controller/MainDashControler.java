@@ -6,6 +6,7 @@ import java.util.Set;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +45,9 @@ public class MainDashControler {
 
 	@GetMapping("/wilayaavis")
 	public List<Wilaya> getListCommune() {
-		return wilayaRepository.findAll();
+		List<Wilaya> listwilaya =  wilayaRepository.findAll();
+		System.err.println(listwilaya.get(0).getCommune().get(0).getLibelleC());
+		return listwilaya;
 	}
 
 }

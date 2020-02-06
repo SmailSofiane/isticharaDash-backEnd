@@ -5,14 +5,15 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "commune")
 public class Commune {
 
 	
-	@Column(name = "codeW")
-	private String CodeW;
+	@Column(name = "codew")
+	private String Codew;
 	@Id
 	private String codec;
 	@Column
@@ -21,20 +22,28 @@ public class Commune {
 	private String LibelleC_AR;
 	
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToMany(mappedBy = "commune")	
 	List<Aviscitoyen> aviscitoyen;
 	
 	@ManyToOne
+	@JsonManagedReference
+	@JoinColumn(name="codeW")
 	Wilaya wilaya;
 	
 	
 	 
-	public String getCodeW() {
-		return CodeW;
+	public Wilaya getWilaya() {
+		return wilaya;
 	}
-	public void setCodeW(String codeW) {
-		CodeW = codeW;
+	public void setWilaya(Wilaya wilaya) {
+		this.wilaya = wilaya;
+	}
+	public String getCodew() {
+		return Codew;
+	}
+	public void setCodeW(String codew) {
+		Codew = codew;
 	}
 	 
 	public String getCodec() {
