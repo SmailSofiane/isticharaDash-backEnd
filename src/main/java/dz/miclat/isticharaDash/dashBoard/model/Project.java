@@ -2,18 +2,21 @@ package dz.miclat.isticharaDash.dashBoard.model;
 
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import dz.miclat.isticharaDash.dashBoard.model.embeddedId.Projetid;
+import dz.miclat.isticharaDash.dashBoard.model.embeddedId.Projectid;
 
 @Entity
 @Table(name = "listprojets")
 public class Project {
 
 	@EmbeddedId
-	private Projetid projetId;
+	private Projectid projetId;
 
 	@Column(name = "libprojet")
 	private String libprojet;
@@ -31,20 +34,20 @@ public class Project {
 		super();
 	}
 
-	public Project(Projetid projetId, String libprojet, String libprojetFr, List<Aviscitoyen> aviscitoyen,
-			Titre titre) {
+	public Project(Projectid projetId, String libprojet, String libprojetFr, List<Aviscitoyen> aviscitoyen/*,
+			Titre titre*/) {
 		super();
 		this.projetId = projetId;
 		this.libprojet = libprojet;
 		this.libprojetFr = libprojetFr;
 		this.aviscitoyen = aviscitoyen;
-		this.titre = titre;
+	//	this.titre = titre;
 	}
 
 	/*
 	 * @OneToOne private Aviscitoyen aviscitoyen;
 	 */
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name = "codeTitre", referencedColumnName = "codeTitre", insertable = false, updatable = false)
 	private Titre titre;
 
@@ -54,7 +57,7 @@ public class Project {
 
 	public void setTitre(Titre titre) {
 		this.titre = titre;
-	}
+	}*/
 
 	public List<Aviscitoyen> getAviscitoyen() {
 		return aviscitoyen;
@@ -70,11 +73,11 @@ public class Project {
 	 * public void setAviscitoyen(Aviscitoyen aviscitoyen) { this.aviscitoyen =
 	 * aviscitoyen; }
 	 */
-	public Projetid getProjetId() {
+	public Projectid getProjetId() {
 		return projetId;
 	}
 
-	public void setProjetId(Projetid projetId) {
+	public void setProjetId(Projectid projetId) {
 		this.projetId = projetId;
 	}
 

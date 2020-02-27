@@ -10,42 +10,45 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 @Table(name = "commune")
 public class Commune {
-
 	
 	@Column(name = "codew")
-	private String Codew;
+	private String codew;
 	@Id
 	private String codec;
 	@Column
 	private String LibelleC;
 	@Column
 	private String LibelleC_AR;
-	
-	
+
 	//@JsonIgnore
-	@OneToMany(mappedBy = "commune")	
-	List<Aviscitoyen> aviscitoyen;
+	//@OneToMany(mappedBy = "commune")	
+	//List<Aviscitoyen> aviscitoyen;
 	
 	@ManyToOne
-	@JsonManagedReference
+	//@JsonManagedReference
+	@JsonIgnore 
 	@JoinColumn(name="codeW")
-	Wilaya wilaya;
+	private Wilaya wilaya;
+		 
 	
 	
-	 
+	public Commune() {
+		super();
+	}
 	public Wilaya getWilaya() {
 		return wilaya;
 	}
 	public void setWilaya(Wilaya wilaya) {
 		this.wilaya = wilaya;
 	}
-	public String getCodew() {
-		return Codew;
-	}
-	public void setCodeW(String codew) {
-		Codew = codew;
-	}
 	 
+	 
+	public String getCodew() {
+		return codew;
+	}
+	public void setCodew(String codew) {
+		this.codew = codew;
+	}
 	public String getCodec() {
 		return codec;
 	}
@@ -64,12 +67,12 @@ public class Commune {
 	public void setLibelleC_AR(String libelleC_AR) {
 		LibelleC_AR = libelleC_AR;
 	}
-	public List<Aviscitoyen> getAviscitoyen() {
+	/*public List<Aviscitoyen> getAviscitoyen() {
 		return aviscitoyen;
 	}
 	public void setAviscitoyen(List<Aviscitoyen> aviscitoyen) {
 		this.aviscitoyen = aviscitoyen;
-	}
+	}*/
 
 	
 	

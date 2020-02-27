@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "Wilaya")
@@ -29,19 +30,26 @@ public class Wilaya {
 	@Column(name = "libelar")
 	private String libelAr;
  
-
-	@OneToMany(mappedBy="wilaya" ,fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-	@JsonBackReference
-	List<Commune> commune;
+	@Column(name="nbVotants")
+	private int nbVotants;
 	
+/*
+	@OneToMany(mappedBy="wilaya" ,fetch = FetchType.EAGER)
+	//@JsonBackReference
+	@JsonIgnore
+	 @JsonProperty("communes")
+	private List<Commune> comms;*/
 	 
-
-	public List<Commune> getCommune() {
-		return commune;
+	public int getNbVotants() {
+		return nbVotants;
 	}
 
-	public void setCommune(List<Commune> commune) {
-		this.commune = commune;
+	public void setNbVotants(int nbVotants) {
+		this.nbVotants = nbVotants;
+	}
+
+	public Wilaya() {
+		super();
 	}
 
 	public String getCodew() {
@@ -68,6 +76,8 @@ public class Wilaya {
 		this.libelAr = libelAr;
 	}
 
-	
+	 
+
+	 
 
 }

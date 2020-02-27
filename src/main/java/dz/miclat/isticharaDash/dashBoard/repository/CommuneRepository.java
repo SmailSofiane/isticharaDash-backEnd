@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import dz.miclat.isticharaDash.dashBoard.model.Commune;
 
-public interface CommuneRepository   extends JpaRepository<Commune, Long> {
+public interface CommuneRepository   extends JpaRepository<Commune, String> {
 
 }

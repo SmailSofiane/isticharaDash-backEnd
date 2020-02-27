@@ -6,14 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class Projetid implements Serializable {
+public class Projectid implements Serializable {
 
 	@Column(name="codeTitre")
 	private int codeTitre;
 	@Column(name="codeprojet")
 	private int codeprojet;
 
-	public Projetid() {
+	public Projectid() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -56,7 +56,7 @@ public class Projetid implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Projetid other = (Projetid) obj;
+		Projectid other = (Projectid) obj;
 		if (codeTitre != other.codeTitre)
 			return false;
 		if (codeprojet != other.codeprojet)

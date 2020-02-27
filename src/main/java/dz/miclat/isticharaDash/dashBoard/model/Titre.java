@@ -11,36 +11,31 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Titre {
 
 	@Id 
-	@Column(name = "codeTitre")
-	private int codeTitre;
-
+	@Column(name = "num")
+	private int num;
 
 	@Column(name = "libRub")
 	private String libRub;
 
-	
-	
-	public int getCodeTitre() {
-		return codeTitre;
+	@Column(name="nbVotants")
+	private int nbVotants;
+	 	 
+	public int getNbVotants() {
+		return nbVotants;
 	}
 
-	public void setCodeTitre(int codeTitre) {
-		this.codeTitre = codeTitre;
+	public void setNbVotants(int nbVotants) {
+		this.nbVotants = nbVotants;
 	}
 
-	//@JsonIgnore
-	/*@OneToMany(mappedBy = "titre",cascade = CascadeType.ALL)
-	private List<Project> projets;
-
-	public List<Project> getProjets() {
-		return projets;
+	public int getNum() {
+		return num;
 	}
 
-	public void setProjets(List<Project> projets) {
-		this.projets = projets;
-	}*/
+	public void setNum(int num) {
+		this.num = num;
+	}
 
-	 
 	public String getLibRub() {
 		return libRub;
 	}
