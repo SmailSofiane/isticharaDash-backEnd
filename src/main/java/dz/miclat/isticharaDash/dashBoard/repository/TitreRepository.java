@@ -10,12 +10,12 @@ import dz.miclat.isticharaDash.dashBoard.model.Titre;
 public interface TitreRepository extends JpaRepository<Titre, Long> {
 
 	
-	@Query(value=" select tp.*,isnull(ti.nbVotants,0) as nbVotants from    ProjetsNat2.dbo.Titre tp\r\n" + 
+	@Query(value=" select tp.*,isnull(ti.nbVotants,0) as nbVotants from    ProjetsNat2.dbo.TitreCom tp\r\n" + 
 			"    left join \r\n" + 
 			"    (\r\n" + 
 			"			  SELECT t.num,t.libRub,count(t.num) as nbVotants  \r\n" + 
 			"			  FROM [ProjetsNat2].[dbo].[Aviscitoyen] A  \r\n" + 
-			"			  inner join ProjetsNat2.dbo.Titre t  \r\n" + 
+			"			  inner join ProjetsNat2.dbo.TitreCom t  \r\n" + 
 			"			  on  \r\n" + 
 			"			  t.num=A.codeTitre  \r\n" + 
 			"			  where  \r\n" + 

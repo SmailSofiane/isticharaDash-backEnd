@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 import dz.miclat.isticharaDash.dashBoard.controller.MainDashControler;
+import dz.miclat.isticharaDash.dashBoard.model.Project;
 import dz.miclat.isticharaDash.dashBoard.model.Titre;
 import dz.miclat.isticharaDash.dashBoard.model.Wilaya;
 
@@ -20,9 +21,8 @@ class IsticharaDashApplicationTests {
 
 	@Test
 	void contextLoads() {
-	 List<Titre> l=contrl.getSecteurParWilaya("01");
-		l.forEach(p->System.out.println(p.getNum()+"---"+p.getLibRub()+"-----"+p.getNbVotants()));
-		
+	 List<Project> l=contrl.getProjetsParSecteur("1");
+		l.forEach(p->System.out.println(p.getProjetId()+"---"+p.getLibprojet()+"-----"+p.getNbVotants()));
 	}
 
 }

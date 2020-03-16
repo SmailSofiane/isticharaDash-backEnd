@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import dz.miclat.isticharaDash.dashBoard.model.embeddedId.Projectid;
 
 @Entity
-@Table(name = "listprojets")
+@Table(name = "listprojetsCom")
 public class Project {
 
 	@EmbeddedId
@@ -21,28 +21,28 @@ public class Project {
 	@Column(name = "libprojet")
 	private String libprojet;
 
-	@Column(name = "libprojetFr")
-	private String libprojetFr;
+	 
+	@Column (name="nbVotants")
+	private String nbVotants;
 
 	//@JsonIgnore
-	@OneToMany(mappedBy = "projet",fetch = FetchType.LAZY)
-	private List<Aviscitoyen> aviscitoyen;
+	///@OneToMany(mappedBy = "projet",fetch = FetchType.LAZY)
+	//private List<Aviscitoyen> aviscitoyen;
 
+	 
 	
-	
-	public Project() {
-		super();
+	public String getNbVotants() {
+		return nbVotants;
 	}
 
-	public Project(Projectid projetId, String libprojet, String libprojetFr, List<Aviscitoyen> aviscitoyen/*,
-			Titre titre*/) {
-		super();
-		this.projetId = projetId;
-		this.libprojet = libprojet;
-		this.libprojetFr = libprojetFr;
-		this.aviscitoyen = aviscitoyen;
-	//	this.titre = titre;
+
+	public void setNbVotants(String nbVotants) {
+		this.nbVotants = nbVotants;
 	}
+
+
+	
+ 
 
 	/*
 	 * @OneToOne private Aviscitoyen aviscitoyen;
@@ -57,7 +57,7 @@ public class Project {
 
 	public void setTitre(Titre titre) {
 		this.titre = titre;
-	}*/
+	}
 
 	public List<Aviscitoyen> getAviscitoyen() {
 		return aviscitoyen;
@@ -66,7 +66,7 @@ public class Project {
 	public void setAviscitoyen(List<Aviscitoyen> aviscitoyen) {
 		this.aviscitoyen = aviscitoyen;
 	}
-
+*/
 	/*
 	 * public Aviscitoyen getAviscitoyen() { return aviscitoyen; }
 	 * 
@@ -89,12 +89,5 @@ public class Project {
 		this.libprojet = libprojet;
 	}
 
-	public String getLibprojetFr() {
-		return libprojetFr;
-	}
-
-	public void setLibprojetFr(String libprojetFr) {
-		this.libprojetFr = libprojetFr;
-	}
-
+	 
 }

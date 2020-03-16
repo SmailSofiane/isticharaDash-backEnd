@@ -25,7 +25,7 @@ public class Aviscitoyen {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
-			@JoinColumn(name = "codeTitre", referencedColumnName = "codeTitre", insertable = false, updatable = false),
+			@JoinColumn(name = "codeTitre", referencedColumnName = "codeArticl", insertable = false, updatable = false),
 			@JoinColumn(name = "codeprojet", referencedColumnName = "codeprojet", insertable = false, updatable = false) })
 	private Project projet;
 

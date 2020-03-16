@@ -8,8 +8,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Projectid implements Serializable {
 
-	@Column(name="codeTitre")
-	private int codeTitre;
+	@Column(name="codeArticl")
+	private int codeArticl;
 	@Column(name="codeprojet")
 	private int codeprojet;
 
@@ -17,17 +17,14 @@ public class Projectid implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	 
-	public int getCodeTitre() {
-		return codeTitre;
+	public int getCodeArticl() {
+		return codeArticl;
 	}
 
-
-	public void setCodeTitre(int codeTitre) {
-		this.codeTitre = codeTitre;
+	public void setCodeArticl(int codeArticl) {
+		this.codeArticl = codeArticl;
 	}
-
 
 	public int getCodeprojet() {
 		return codeprojet;
@@ -42,7 +39,7 @@ public class Projectid implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + codeTitre;
+		result = prime * result + codeArticl;
 		result = prime * result + codeprojet;
 		return result;
 	}
@@ -57,7 +54,7 @@ public class Projectid implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Projectid other = (Projectid) obj;
-		if (codeTitre != other.codeTitre)
+		if (codeArticl != other.codeArticl)
 			return false;
 		if (codeprojet != other.codeprojet)
 			return false;

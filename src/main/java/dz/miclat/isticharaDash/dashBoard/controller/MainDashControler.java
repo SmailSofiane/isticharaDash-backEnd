@@ -16,10 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dz.miclat.isticharaDash.dashBoard.model.Aviscitoyen;
 import dz.miclat.isticharaDash.dashBoard.model.Commune;
+import dz.miclat.isticharaDash.dashBoard.model.Project;
 import dz.miclat.isticharaDash.dashBoard.model.Titre;
 import dz.miclat.isticharaDash.dashBoard.model.Wilaya;
 import dz.miclat.isticharaDash.dashBoard.repository.AviscitoyenRepository;
-import dz.miclat.isticharaDash.dashBoard.repository.TitlsRepository;
+import dz.miclat.isticharaDash.dashBoard.repository.ProjetsRepository;
 import dz.miclat.isticharaDash.dashBoard.repository.TitreRepository;
 import dz.miclat.isticharaDash.dashBoard.repository.WilayaRepository;
 
@@ -29,7 +30,7 @@ import dz.miclat.isticharaDash.dashBoard.repository.WilayaRepository;
 public class MainDashControler {
 
 	@Autowired
-	private TitlsRepository titlsrepository;
+	private ProjetsRepository titlsrepository;
 
 	@Autowired
 	AviscitoyenRepository aviscitoyenRepository;
@@ -38,6 +39,8 @@ public class MainDashControler {
 	WilayaRepository wilayaRepository;
 	@Autowired
 	TitreRepository titrepository;
+	@Autowired
+	ProjetsRepository projetRepository;
 
 	// @GetMapping("/{titres}", produces = "application/json")
 	// @RequestMapping(value="/listtitres",method =RequestMethod.GET )
@@ -59,8 +62,13 @@ public class MainDashControler {
 
 	@GetMapping("/listsecteur")
 	public List<Titre> getSecteurParWilaya(@RequestParam String codew) {
-
 		return titrepository.liteSecteurWilaya(codew);
 	}
 
+	@GetMapping("listprojetparsect")
+	public List<Project> getProjetsParSecteur(@RequestParam String codes)
+	{
+		return projetRepository.listprojectOfSecteur(codes);
+	}
+	
 }
